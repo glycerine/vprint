@@ -14,13 +14,15 @@ import (
 var vv = vprint.VV
 
 func TestHello(t *testing.T) {
-	vv("hello world")
+	a := 1
+	b := "hi"
+	vv("hello world; a=%v, b=%v", a, b)
 }
 ~~~
 
 output:
 ~~~
-vprint_test.go:11 2019-08-26 01:42:55.695 -0400 EDT hello world
+vprint_test.go:13 2019-08-26 01:50:23.228 -0400 EDT hello world; a=1, b=hi
 ~~~
 
 In short, vprint provides file locations, time stamps, and a
