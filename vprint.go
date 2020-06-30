@@ -13,6 +13,8 @@ import (
 	"time"
 )
 
+const RFC3339MsecTz0 = "2006-01-02T15:04:05.000Z07:00"
+
 // for tons of debug output
 var VerboseVerbose bool = false
 
@@ -46,7 +48,7 @@ func TSPrintf(format string, a ...interface{}) {
 
 // get timestamp for logging purposes
 func ts() string {
-	return time.Now().Format("2006-01-02 15:04:05.999 -0700 MST")
+	return time.Now().Format(RFC3339MsecTz0)
 }
 
 // so we can multi write easily, use our own printf
