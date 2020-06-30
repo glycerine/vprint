@@ -23,7 +23,7 @@ var VerboseVerbose bool = false
 var pp = PP
 var vv = VV
 
-func panicOn(err error) {
+func PanicOn(err error) {
 	if err != nil {
 		panic(err)
 	}
