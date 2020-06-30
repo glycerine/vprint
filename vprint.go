@@ -14,14 +14,11 @@ import (
 )
 
 // for tons of debug output
-var Verbose bool = false
 var VerboseVerbose bool = false
 
-func P(format string, a ...interface{}) {
-	if Verbose {
-		TSPrintf(format, a...)
-	}
-}
+// convience functions
+var pp = PP
+var vv = VV
 
 func PP(format string, a ...interface{}) {
 	if VerboseVerbose {
@@ -35,22 +32,6 @@ func VV(format string, a ...interface{}) {
 
 func AlwaysPrintf(format string, a ...interface{}) {
 	TSPrintf(format, a...)
-}
-
-var vv = VV
-
-// without the file/line, otherwise the same as PP
-func PPP(format string, a ...interface{}) {
-	if VerboseVerbose {
-		Printf("\n%s ", ts())
-		Printf(format+"\n", a...)
-	}
-}
-
-func PB(w io.Writer, format string, a ...interface{}) {
-	if Verbose {
-		fmt.Fprintf(w, "\n"+format+"\n", a...)
-	}
 }
 
 var tsPrintfMut sync.Mutex
@@ -86,29 +67,4 @@ func FileLine(depth int) string {
 		s = ""
 	}
 	return s
-}
-
-func p(format string, a ...interface{}) {
-	if Verbose {
-		TSPrintf(format, a...)
-	}
-}
-
-var pp = PP
-
-func pbb(w io.Writer, format string, a ...interface{}) {
-	if Verbose {
-		fmt.Fprintf(w, "\n"+format+"\n", a...)
-	}
-}
-
-// quieted for now, uncomment below to display
-func VPrintf(format string, a ...interface{}) (n int, err error) {
-	//return fmt.Fprintf(OurStdout, format, a...)
-	return
-}
-
-func QPrintf(format string, a ...interface{}) (n int, err error) {
-	//return fmt.Fprintf(OurStdout, format, a...)
-	return
 }
