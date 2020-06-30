@@ -1,5 +1,6 @@
-//Copyright(C) 2019 Jason E. Aten, Ph.D. All rights reserved.
-//License: MIT
+// home: https://github.com/glyerine/vprint
+// Copyright(C) 2019 Jason E. Aten, Ph.D. All rights reserved.
+// License: MIT
 
 package vprint
 
@@ -18,9 +19,15 @@ const RFC3339MsecTz0 = "2006-01-02T15:04:05.000Z07:00"
 // for tons of debug output
 var VerboseVerbose bool = false
 
-// convience functions
+// convience functions for . import
 var pp = PP
 var vv = VV
+
+func panicOn(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
 
 func PP(format string, a ...interface{}) {
 	if VerboseVerbose {
